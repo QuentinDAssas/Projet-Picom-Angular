@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthentificationService } from '../Service/authentification.service';
 
 
 @Component({
@@ -9,8 +11,8 @@ import { Component, OnInit } from '@angular/core';
 export class AccueilComponent implements OnInit {
 
 
-  constructor(
-  ){}
+  constructor(private service: AuthentificationService, private activatedRoute: ActivatedRoute, private router: Router) { }
+
 
   ngOnInit(): void {
 
