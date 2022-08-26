@@ -1,1 +1,27 @@
-<p>annonce-component works!</p>
+<h2>Liste des annonces</h2>
+<table>
+<thead>
+  <tr>
+	<th>Date et Heure création</th>
+	<th>Date et heure de début</th>
+	<th>Date et heure de fin</th>
+  <th>Contenu</th>
+	<th>Zone</th>
+	<th>Tranche Horaires</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let annonce of annoncesList">
+  	<td>{{annonce.dateHeureCreation}}</td>
+  	<td>{{annonce.dateHeureDebut}}</td>
+    <td>{{annonce.dateHeureFin}}</td>
+    <td>{{annonce.contenu}}</td>
+    <td ><li *ngFor="let zone of annonce['zones']">{{zone.nom}}</li></td>
+    <td><li *ngFor="let trancheHoraire of annonce['tranchesHoraires']">{{trancheHoraire.debut}}</li></td>
+	  <td><a routerLinkActive="active" routerLink="">Voir</a></td>
+    <td><a routerLinkActive="active" routerLink="">Supprimer</a></td>
+  </tr>
+</tbody>
+</table>
+<button type="button" class="btn btn-primary" routerLinkActive="active" routerLink="/ajouter-annonce">Ajouter une annonce</button>
+
