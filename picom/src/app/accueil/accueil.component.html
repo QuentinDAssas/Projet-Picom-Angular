@@ -1,17 +1,17 @@
 <h1>Picom</h1>
 
-<p>Je me connecte</p>
-
 <form>
   <div>
-    <label for="email">Email</label>
-    <input type="email" id="email">
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email">
+    </div>
+    <div>
+      <label for="motDePasse">Mot de passe</label>
+      <input type="text" id="motDePasse">
+    </div>
   </div>
-  <div>
-    <label for="motDePasse">Mot de passe</label>
-    <input type="text" id="motDePasse">
-  </div>
-<button type="submit" routerLinkActive="active" routerLink="/annonces-liste">Connexion</button>
+  <button type="submit" routerLinkActive="active" routerLink="/administration">Connexion</button>
 </form>
+<a routerLinkActive="active" routerLink="/inscription">Pas de compte, Je m'inscris ici</a>
 
-<a routerLinkActive="active" routerLink="/inscription">Je m'inscris</a>
