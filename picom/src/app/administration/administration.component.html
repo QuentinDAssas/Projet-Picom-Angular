@@ -1,37 +1,50 @@
-<p>administration works!</p>
 
-<table>
-  <thead>
-      <tr>
-          <th colspan="3">The table header</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Zone</td>
-          <td>Tranche Horaire</td>
-          <td>Prix en euros</td>
-      </tr>
-      <tr>
-        <td *ngFor="let tarif of tarifs">{{tarif.nom}}</td>
-        <td *ngFor="let tarif of tarifs">{{tarif.trancheHoraire}}</td>
-        <td *ngFor="let tarif of tarifs">{{tarif.prixEnEuros}}</td>
-      </tr>
-  </tbody>
-</table>
-
-<br>
-<label for="zones">zones :</label>
-<select name="zones" id="zones-selected">
-  <option value="">Sélectionner la zone</option>
-  <option *ngFor="let zone of zones" id={{zone.id}} value={{zone.id}}>{{zone.nom}}</option>
-</select>
-<br>
-
-<br>
-<label for="trancheHoraires">Tranche-Horaires :</label>
-<select name="trancheHoraires" id="trancheHoraires-selected">
-  <option value="">Sélectionner la tranche-Horaire</option>
-  <option *ngFor="let trancheHoraire of trancheHoraires" id={{trancheHoraire.id}} value={{trancheHoraire.id}}>{{trancheHoraire.debut}}</option>
-</select>
-<br>
+<div class="container">
+  <table>
+    <thead>
+        <tr>
+            <th colspan="4">The table header</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ajouter par</td>
+            <td>Zone</td>
+            <td>Tranche Horaire</td>
+            <td>Prix en euros</td>
+        </tr>
+        <tr *ngFor="let tarif of tarifs">
+          <td>{{tarif['administrateur'].prenom}} {{tarif['administrateur'].nom}}</td>
+          <td>{{tarif['zone'].nom}}</td>
+          <td>{{tarif['trancheHoraire'].debut}}h-{{tarif['trancheHoraire'].debut+1}}h</td>
+          <td>{{tarif.prixEnEuros}}€</td>
+        </tr>
+    </tbody>
+  </table>
+  <br>
+  <div >
+    <form class="tarif-flex-col">
+      <div class="tarif-flex-row">
+        <div class="tarif-flex-col">
+          <label for="zones">zones :</label>
+          <select name="zones" id="zones-selected">
+            <option value="">Sélectionner la zone</option>
+            <option *ngFor="let zone of zones" id={{zone.id}} value={{zone.id}}>{{zone.nom}}</option>
+          </select>
+        </div>
+        <div class="tarif-flex-col">
+          <label for="trancheHoraires">Tranche-Horaires :</label>
+          <select name="trancheHoraires" id="trancheHoraires-selected">
+            <option value="">Sélectionner la tranche-Horaire</option>
+            <option *ngFor="let trancheHoraire of trancheHoraires" id={{trancheHoraire.id}} value={{trancheHoraire.id}}>{{trancheHoraire.debut}}h-{{trancheHoraire.debut+1}}h</option>
+          </select>
+        </div>
+        <div class="tarif-flex-col">
+          <label for="prixEnEuros">Tarif :</label>
+          <input type="number" id="prixEnEuros" placeholder="Prix en euros">
+        </div>
+      </div>
+      <button class="addPrice" type="submit">Ajouter un prix</button>
+    </form>
+  </div>
+</div>
