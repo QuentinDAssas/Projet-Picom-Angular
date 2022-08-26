@@ -3,24 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClientComponentComponent } from './client-component/client-component.component';
-import { AdministrateurComponentComponent } from './administrateur-component/administrateur-component.component';
-import { InscriptionComponentComponent } from './inscription-component/inscription-component.component';
-import { PaiementComponentComponent } from './paiement-component/paiement-component.component';
-import { AccueilComponentComponent } from './accueil-component/accueil-component.component';
-import { AnnonceComponentComponent } from './annonce-component/annonce-component.component';
-import { DiffusionsComponentComponent } from './diffusions-component/diffusions-component.component';
+import { AdministrateurComponent } from './administrateur/administrateur.component';
+import { InscriptionComponent } from './inscription/inscription.component';
+import { PaiementComponent } from './paiement/paiement.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { AnnonceComponent } from './annonce/annonce.component';
+import { DiffusionsComponent } from './diffusions/diffusions.component';
+import { AjouterAnnonceComponent } from './ajouter-annonce/ajouter-annonce.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClientComponentComponent,
-    AdministrateurComponentComponent,
-    InscriptionComponentComponent,
-    PaiementComponentComponent,
-    AccueilComponentComponent,
-    AnnonceComponentComponent,
-    DiffusionsComponentComponent
+    InscriptionComponent,
+    AdministrateurComponent,
+    InscriptionComponent,
+    PaiementComponent,
+    AccueilComponent,
+    AnnonceComponent,
+    DiffusionsComponent,
+    AjouterAnnonceComponent
   ],
   imports: [
     BrowserModule,

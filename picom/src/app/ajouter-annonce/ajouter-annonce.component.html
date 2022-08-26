@@ -1,0 +1,35 @@
+<h1>Rédiger une annonce</h1>
+
+<form>
+  <div class="html-editor-container">
+    <label for="content">Ecrivez votre annonce ici : </label>
+  </div>
+
+  <div>
+    <label for="zone">Sélectionnez les zones souhaitées</label>
+    <div class="zone-choice-container">
+      <button id="1">Zone 1</button>
+      <button id="2">Zone 2</button>
+      <button id="3">Zone 3</button>
+      <button id="4">Zone 4</button>
+      <button id="5">Zone 5</button>
+    </div>
+  </div>
+
+  <div>
+    <select id="stop-choice">
+      <option value=""></option>
+    </select>
+  </div>
+  <button id="add-stop">Ajouter</button>
+
+  <div>
+    <select id="hours-choice">
+      <option value=""></option>
+    </select>
+  </div>
+  <button id="add-hours">Ajouter</button>
+
+  <button type="submit" routerLinkActive="active" routerLink="/paiement">Valider et aller au paiement</button>
+
+</form>

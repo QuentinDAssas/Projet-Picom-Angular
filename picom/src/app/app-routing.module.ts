@@ -1,7 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccueilComponent } from './accueil/accueil.component';
+import { AjouterAnnonceComponent } from './ajouter-annonce/ajouter-annonce.component';
+import { AnnonceComponent } from './annonce/annonce.component';
+import { InscriptionComponent } from './inscription/inscription.component';
+import { PaiementComponent } from './paiement/paiement.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'', pathMatch:'full', redirectTo: 'connexion'},
+  {path:'connexion', component: AccueilComponent},
+  {path:'deconnexion', pathMatch:'full', redirectTo: 'connexion'},
+  {path:'inscription', component: InscriptionComponent},
+  {path:'annonces-liste', component: AnnonceComponent},
+  {path:'ajouter-annonce', component:AjouterAnnonceComponent},
+  {path:'paiement', component: PaiementComponent}
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
