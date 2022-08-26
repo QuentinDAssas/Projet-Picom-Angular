@@ -10,6 +10,7 @@ import { AnnonceComponent } from './annonce/annonce.component';
 import { DiffusionsComponent } from './diffusions/diffusions.component';
 import { AjouterAnnonceComponent } from './ajouter-annonce/ajouter-annonce.component';
 import { AdministrationComponent } from './administration/administration.component';
+import { ModifierAnnonceComponent } from './modifier-annonce/modifier-annonce.component';
 
 
 @NgModule({
@@ -22,12 +23,14 @@ import { AdministrationComponent } from './administration/administration.compone
     AnnonceComponent,
     DiffusionsComponent,
     AjouterAnnonceComponent,
-    AdministrationComponent
+    AdministrationComponent,
+    ModifierAnnonceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
