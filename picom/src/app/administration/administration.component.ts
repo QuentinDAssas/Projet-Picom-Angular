@@ -36,6 +36,7 @@ export class AdministrationComponent implements OnInit {
 
   loadTarifs() {
     return this.service.getTarifs().subscribe((data: {}) => { console.log(data);
+      console.log(data);
       this.tarifs = data;
     })
   }
