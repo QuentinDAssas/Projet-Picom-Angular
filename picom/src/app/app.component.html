@@ -1,8 +1,9 @@
+﻿<!-- nav -->
 <header>
   <div>
     <a href="#">Picom</a>
   </div>
-  <nav class="menu">
+  <nav class="menu" *ngIf="currentUser">
     <ul>
       <li>
         <a routerLinkActive="active" routerLink="/connexion">Accueil</a>
@@ -13,11 +14,24 @@
       <li>
         <a routerLinkActive="active" routerLink="/annonces-liste">Liste des annonces</a>
       </li>
+      <li>
+        <a routerLinkActive="active" (click)="logout()">Deconnexion</a>
+      </li>
     </ul>
   </nav>
+</header>
 
+<!-- main app container -->
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-6 offset-sm-3">
+              <router-outlet></router-outlet>
+          </div>
+      </div>
+  </div>
+</div>
 
-<router-outlet></router-outlet>
 
 <footer>
   <a href="">Plan du site</a>

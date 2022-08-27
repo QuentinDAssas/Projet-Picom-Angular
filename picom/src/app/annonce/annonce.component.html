@@ -18,7 +18,7 @@
     <td>{{annonce.contenu}}</td>
     <td ><li *ngFor="let zone of annonce['zones']">{{zone.nom}}</li></td>
     <td><li *ngFor="let trancheHoraire of annonce['tranchesHoraires']">{{trancheHoraire.debut}}</li></td>
-	  <td><a routerLinkActive="active" routerLink="/modifier-annonce">Modifier annonce</a></td>
+	  <td><a routerLinkActive="active" routerLink="client/modifier-annonce">Modifier annonce</a></td>
     <td><a routerLinkActive="active" routerLink="">Supprimer annonce</a></td>
   </tr>
 </tbody>

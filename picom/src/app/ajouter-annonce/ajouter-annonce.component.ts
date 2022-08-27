@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AdministrationService } from '../Service/administration.service';
 
 @Component({
   selector: 'app-ajouter-annonce',
@@ -8,25 +9,50 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AjouterAnnonceComponent implements OnInit {
 
-  zonesDetails: any = [];
-  arretsDetails: any = [];
-  horairesDetails: any = [];
-
-  // = this.activatedRoute.snapshot.params['id'];
-
-  // constructor(public service: , private activatedRoute: ActivatedRoute, private router: Router) { }
+  zonesList: any = [];
+  arretsList: any = [];
+  tranchesHorairesList: any = [];
 
 
-  // loadAnnonces(){
-  //   return this.service.getAllAnnonces().subscribe((data: {}) => {
-  //     console.log(data);
-  //     this.annoncesDetails = data;
-  //   })
-  // }
+  addZones: EventEmitter<any> = new EventEmitter();
+
+  constructor(private service: AdministrationService, private activatedRoute: ActivatedRoute, private router: Router) { }
+
+
+  loadZones(){
+    return this.service.getZones().subscribe((data: {}) => {
+      console.log(data);
+      this.zonesList = data;
+    })
+  }
+
+  loadArrets(){
+    return this.service.getArrets().subscribe((data: {}) => {
+      console.log(data);
+      this.arretsList = data;
+    })
+  }
+
+  loadTranchesHoraires(){
+    return this.service.getTrancheHoraires().subscribe((data: {}) => {
+      console.log(data);
+      this.tranchesHorairesList = data;
+    })
+  }
 
     ngOnInit(): void {
-     // this.loadAnnonces();
+     this.loadZones();
+     this.loadArrets()
+     this.loadTranchesHoraires();
+
     }
 
+    addHours(){
+      window.alert("addHours clicked");
+    }
 
 }
+function Outpout() {
+  throw new Error('Function not implemented.');
+}
+

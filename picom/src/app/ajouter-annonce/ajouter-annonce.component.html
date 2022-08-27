@@ -9,23 +9,29 @@
   <div>
     <label for="zone">Sélectionnez les zones souhaitées</label>
     <div class="zone-choice-container">
-      <button id=>Zone 1</button>
+      <button *ngFor="let zone of zonesList" value="{{zone.id}}">{{zone.nom}}</button>
     </div>
   </div>
 
   <div>
+    <label for="zone">Sélectionnez les arrets souhaités</label>
+    <div>
     <select id="stop-choice">
-      <option value=""></option>
+      <option *ngFor="let arret of arretsList" value="{{arret.nom}}">{{arret.nom}}</option>
     </select>
+  </div>
   </div>
   <button id="add-stop">Ajouter</button>
 
   <div>
+    <label for="zone">Sélectionnez les tranches horaires souhaitées</label>
+    <div>
     <select id="hours-choice">
-      <option value=""></option>
+      <option *ngFor="let trancheHoraire of tranchesHorairesList" value="{{trancheHoraire.debut}">{{trancheHoraire.debut}}</option>
     </select>
   </div>
-  <button id="add-hours">Ajouter</button>
+  </div>
+  <button id="add-hours" onclick="addHours($event)">Ajouter</button>
 
   <button type="submit" routerLinkActive="active" routerLink="/paiement">Valider et aller au paiement</button>
 

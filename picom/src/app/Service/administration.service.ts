@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { TrancheHoraire } from '../model/tranche-horaire';
 import { Tarif } from '../model/tarif';
+import { Arret } from '../model/arret';
 
 @Injectable({
   providedIn: 'root'
@@ -22,23 +23,30 @@ export class AdministrationService {
 
 getTrancheHoraires():Observable<any>{
   return this.http.get<TrancheHoraire[]>(this.endpoint + 'api/trancheHoraires', this.httpOptions)
-  .pipe(
-      catchError(this.handleError)
-  )
+  // .pipe(
+  //     catchError(this.handleError)
+  // )
 }
 
 getZones():Observable<any>{
   return this.http.get<Zone[]>(this.endpoint + 'api/zones', this.httpOptions)
-  .pipe(
-      catchError(this.handleError)
-  )
+  // .pipe(
+  //     catchError(this.handleError)
+  // )
 }
 
 getTarifs():Observable<any>{
-  return this.http.get<Tarif[]>(this.endpoint + 'api/ListTarif', this.httpOptions)
-  .pipe(
-      catchError(this.handleError)
-  )
+  return this.http.get<Tarif[]>(this.endpoint + 'api/listeTarifs', this.httpOptions)
+  // .pipe(
+  //     catchError(this.handleError)
+  // )
+}
+
+getArrets():Observable<any>{
+  return this.http.get<Arret[]>(this.endpoint + 'api/arrets', this.httpOptions)
+  // .pipe(
+  //     catchError(this.handleError)
+  // )
 }
 
 handleError(error:any) {

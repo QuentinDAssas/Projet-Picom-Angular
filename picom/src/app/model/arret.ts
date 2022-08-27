@@ -1,3 +1,5 @@
+import { Zone } from "./zone";
+
 export class Arret {
 
   id: number = 0;
@@ -5,5 +7,5 @@ export class Arret {
   longitude: number = 0;
   latitude: number = 0;
   zone:Zone= new Zone();
-  
+
 }

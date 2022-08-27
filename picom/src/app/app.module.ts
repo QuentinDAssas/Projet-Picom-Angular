@@ -11,6 +11,8 @@ import { DiffusionsComponent } from './diffusions/diffusions.component';
 import { AjouterAnnonceComponent } from './ajouter-annonce/ajouter-annonce.component';
 import { AdministrationComponent } from './administration/administration.component';
 import { ModifierAnnonceComponent } from './modifier-annonce/modifier-annonce.component';
+import { ErrorPageComponent } from './vue/error-page/error-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,12 +26,14 @@ import { ModifierAnnonceComponent } from './modifier-annonce/modifier-annonce.co
     DiffusionsComponent,
     AjouterAnnonceComponent,
     AdministrationComponent,
-    ModifierAnnonceComponent
+    ModifierAnnonceComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
