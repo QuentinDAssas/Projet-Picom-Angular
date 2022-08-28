@@ -3,7 +3,7 @@
   <table>
     <thead>
         <tr>
-            <th colspan="4">The table header</th>
+            <th colspan="5">The table header</th>
         </tr>
     </thead>
     <tbody>
@@ -12,36 +12,41 @@
             <td>Zone</td>
             <td>Tranche Horaire</td>
             <td>Prix en euros</td>
+            <td>Supprimer</td>
         </tr>
-        <tr *ngFor="let tarif of tarifs">
+        <tr *ngFor="let tarif of ListTarifs">
           <td>{{tarif['administrateur'].prenom}} {{tarif['administrateur'].nom}}</td>
           <td>{{tarif['zone'].nom}}</td>
           <td>{{tarif['trancheHoraire'].debut}}h-{{tarif['trancheHoraire'].debut+1}}h</td>
           <td>{{tarif.prixEnEuros}}€</td>
+          <td> <button id="{{tarif.id}}" (click)="deleteTarif(tarif.id)">Oui</button></td>
         </tr>
     </tbody>
   </table>
   <br>
   <div >
-    <form class="tarif-flex-col">
+    <form class="tarif-flex-col" (ngSubmit)="onSubmit()" #formTarif="ngForm">
       <div class="tarif-flex-row">
+        <div>
+          <input type="number" [(ngModel)]="tarifForm.idAdministrateur" [ngModelOptions]="{standalone: true}" value="2" class="form-control" hidden>
+        </div>
         <div class="tarif-flex-col">
           <label for="zones">zones :</label>
-          <select name="zones" id="zones-selected">
-            <option value="">Sélectionner la zone</option>
-            <option *ngFor="let zone of zones" id={{zone.id}} value={{zone.id}}>{{zone.nom}}</option>
+          <select name="zones" [(ngModel)]="tarifForm.idZone">
+            <option value="0">Sélectionner la zone</option>
+            <option *ngFor="let zone of ListZones" [ngValue]="zone.id">{{zone.nom}}</option>
           </select>
         </div>
         <div class="tarif-flex-col">
           <label for="trancheHoraires">Tranche-Horaires :</label>
-          <select name="trancheHoraires" id="trancheHoraires-selected">
-            <option value="">Sélectionner la tranche-Horaire</option>
-            <option *ngFor="let trancheHoraire of trancheHoraires" id={{trancheHoraire.id}} value={{trancheHoraire.id}}>{{trancheHoraire.debut}}h-{{trancheHoraire.debut+1}}h</option>
+          <select name="trancheHoraires" [(ngModel)]="tarifForm.idTrancheHoraire">
+            <option value="0">Sélectionner la tranche-Horaire</option>
+            <option *ngFor="let trancheHoraire of ListTrancheHoraires" [ngValue]="trancheHoraire.id">{{trancheHoraire.debut}}h-{{trancheHoraire.debut+1}}h</option>
           </select>
         </div>
         <div class="tarif-flex-col">
           <label for="prixEnEuros">Tarif :</label>
-          <input type="number" id="prixEnEuros" placeholder="Prix en euros">
+          <input type="number" [(ngModel)]="tarifForm.prixEnEuros" class="form-control" id="prixEnEuros" name="prixEnEuros" placeholder="Prix en euros" required #prixEnEuros="ngModel">
         </div>
       </div>
       <button class="addPrice" type="submit">Ajouter un prix</button>

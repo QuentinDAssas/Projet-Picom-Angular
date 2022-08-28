@@ -1,5 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, Input, OnInit } from '@angular/core';
+import { Tarif } from '../model/tarif';
+import { Zone } from '../model/zone';
+import { TrancheHoraire } from '../model/tranche-horaire';
 import { AdministrationService } from '../Service/administration.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { Administrateur } from '../model/administrateur';
+import { TarifDto } from '../model/tarif-dto';
 
 @Component({
   selector: 'app-administration',
@@ -8,13 +16,17 @@ import { AdministrationService } from '../Service/administration.service';
 })
 export class AdministrationComponent implements OnInit {
 
-  trancheHoraires: any = [];
-  zones: any = [];
-  tarifs: any = [];
+  @Input()
+  tarifForm = new TarifDto();
+
+  ListTrancheHoraires: any = [];
+  ListZones: any = [];
+  ListTarifs: any = [];
 
   constructor(
-    public service: AdministrationService
-  ){}
+    public service: AdministrationService,
+    public router: Router,
+  ){ }
 
   ngOnInit(): void {
     this.loadTrancheHoraires()
@@ -24,20 +36,43 @@ export class AdministrationComponent implements OnInit {
 
   loadTrancheHoraires() {
     return this.service.getTrancheHoraires().subscribe((data: {}) => { console.log(data);
-      this.trancheHoraires = data;
+      this.ListTrancheHoraires = data;
     })
   }
 
   loadZones() {
     return this.service.getZones().subscribe((data: {}) => { console.log(data);
-      this.zones = data;
+      this.ListZones = data;
     })
   }
 
   loadTarifs() {
     return this.service.getTarifs().subscribe((data: {}) => { console.log(data);
-      this.tarifs = data;
+      this.ListTarifs = data;
     })
   }
 
+  deleteTarif(id:number) {
+    if (window.confirm('Voulez vous supprimer le tarif ?')){
+      this.service.deleteTarif(id).subscribe(data => {
+        this.loadTarifs()
+      })
+    }
+  }
+
+  onSubmit() {
+    this.service.addTarif(this.tarifForm).subscribe((data: {}) => { console.log(data);
+      this.router.navigate(['/administration']);
+    });
+  }
+
+  // submitTarif(formTarif:NgForm) {
+  //   console.log(formTarif.value)
+  //   this.tarifDetail.prixEnEuros = formTarif.value.prixEnEuros;
+  //   this.tarifDetail.zone = formTarif.value.zones;
+  //   this.tarifDetail.tranchesHoraire = formTarif.value.trancheHoraires;
+  // this.service.addTarif(this.tarifDetail).subscribe((data: {}) => { console.log(data);
+  //   this.router.navigate(['/administration']);
+  // });
+  //  }
 }

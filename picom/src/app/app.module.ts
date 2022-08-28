@@ -10,6 +10,7 @@ import { AnnonceComponent } from './annonce/annonce.component';
 import { DiffusionsComponent } from './diffusions/diffusions.component';
 import { AjouterAnnonceComponent } from './ajouter-annonce/ajouter-annonce.component';
 import { AdministrationComponent } from './administration/administration.component';
+import { FormsModule, NgForm } from '@angular/forms';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AdministrationComponent } from './administration/administration.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
