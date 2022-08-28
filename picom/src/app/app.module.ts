@@ -13,7 +13,6 @@ import { AdministrationComponent } from './administration/administration.compone
 import { ModifierAnnonceComponent } from './modifier-annonce/modifier-annonce.component';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     AppComponent,

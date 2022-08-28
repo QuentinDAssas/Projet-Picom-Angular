@@ -25,25 +25,46 @@
   </table>
   <br>
   <div >
+<<<<<<< HEAD
     <form class="tarif-flex-col" (ngSubmit)="onSubmit(formTarif)" #formTarif="ngForm" novalidate>
+=======
+    <form class="tarif-flex-col" (ngSubmit)="onSubmit()" #formTarif="ngForm">
+>>>>>>> c7405bc887c28557b6fd0e0a07f65c173c45f4bf
       <div class="tarif-flex-row">
+        <div>
+          <input type="number" [(ngModel)]="tarifForm.idAdministrateur" [ngModelOptions]="{standalone: true}" value="2" class="form-control" hidden>
+        </div>
         <div class="tarif-flex-col">
           <label for="zones">zones :</label>
+<<<<<<< HEAD
           <select name="zones"[(ngModel)]="tarif.zone.id" >
+=======
+          <select name="zones" [(ngModel)]="tarifForm.idZone">
+>>>>>>> c7405bc887c28557b6fd0e0a07f65c173c45f4bf
             <option value="0">Sélectionner la zone</option>
             <option *ngFor="let zone of ListZones" [ngValue]="zone.id">{{zone.nom}}</option>
           </select>
         </div>
         <div class="tarif-flex-col">
           <label for="trancheHoraires">Tranche-Horaires :</label>
+<<<<<<< HEAD
           <select name="trancheHoraires" [(ngModel)]="tarif.tranchesHoraire.id">
             <option value="0">Sélectionner la tranche-Horaire</option>
             <option *ngFor="let trancheHoraire of ListTrancheHoraires"[ngValue]="trancheHoraire.id">{{trancheHoraire.debut}}h-{{trancheHoraire.debut+1}}h</option>
+=======
+          <select name="trancheHoraires" [(ngModel)]="tarifForm.idTrancheHoraire">
+            <option value="0">Sélectionner la tranche-Horaire</option>
+            <option *ngFor="let trancheHoraire of ListTrancheHoraires" [ngValue]="trancheHoraire.id">{{trancheHoraire.debut}}h-{{trancheHoraire.debut+1}}h</option>
+>>>>>>> c7405bc887c28557b6fd0e0a07f65c173c45f4bf
           </select>
         </div>
         <div class="tarif-flex-col">
           <label for="prixEnEuros">Tarif :</label>
+<<<<<<< HEAD
           <input type="number" [(ngModel)]="tarif.prixEnEuros" class="form-control" id="prixEnEuros" name="prixEnEuros" placeholder="Prix en euros" required #prixEnEuros="ngModel">
+=======
+          <input type="number" [(ngModel)]="tarifForm.prixEnEuros" class="form-control" id="prixEnEuros" name="prixEnEuros" placeholder="Prix en euros" required #prixEnEuros="ngModel">
+>>>>>>> c7405bc887c28557b6fd0e0a07f65c173c45f4bf
         </div>
       </div>
       <button class="addPrice" type="submit">Ajouter un prix</button>
