@@ -11,6 +11,7 @@ import { DiffusionsComponent } from './diffusions/diffusions.component';
 import { AjouterAnnonceComponent } from './ajouter-annonce/ajouter-annonce.component';
 import { AdministrationComponent } from './administration/administration.component';
 import { ModifierAnnonceComponent } from './modifier-annonce/modifier-annonce.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { ModifierAnnonceComponent } from './modifier-annonce/modifier-annonce.co
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
