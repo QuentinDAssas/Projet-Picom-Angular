@@ -1,12 +1,7 @@
 
 import { Component, Input, OnInit } from '@angular/core';
-import { Tarif } from '../model/tarif';
-import { Zone } from '../model/zone';
-import { TrancheHoraire } from '../model/tranche-horaire';
 import { AdministrationService } from '../Service/administration.service';
-import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
-import { Administrateur } from '../model/administrateur';
+import { NavigationEnd, Router } from '@angular/router';
 import { TarifDto } from '../model/tarif-dto';
 
 @Component({
@@ -61,18 +56,9 @@ export class AdministrationComponent implements OnInit {
   }
 
   onSubmit() {
-    this.service.addTarif(this.tarifForm).subscribe((data: {}) => { console.log(data);
-      this.router.navigate(['/administration']);
+    this.service.addTarif(this.tarifForm).subscribe((data: {}) => {
+      window.location.reload();
     });
   }
 
-  // submitTarif(formTarif:NgForm) {
-  //   console.log(formTarif.value)
-  //   this.tarifDetail.prixEnEuros = formTarif.value.prixEnEuros;
-  //   this.tarifDetail.zone = formTarif.value.zones;
-  //   this.tarifDetail.tranchesHoraire = formTarif.value.trancheHoraires;
-  // this.service.addTarif(this.tarifDetail).subscribe((data: {}) => { console.log(data);
-  //   this.router.navigate(['/administration']);
-  // });
-  //  }
 }
