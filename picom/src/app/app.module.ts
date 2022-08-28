@@ -10,8 +10,8 @@ import { AnnonceComponent } from './annonce/annonce.component';
 import { DiffusionsComponent } from './diffusions/diffusions.component';
 import { AjouterAnnonceComponent } from './ajouter-annonce/ajouter-annonce.component';
 import { AdministrationComponent } from './administration/administration.component';
-import { FormsModule, NgForm } from '@angular/forms';
-
+import { ModifierAnnonceComponent } from './modifier-annonce/modifier-annonce.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,13 +23,14 @@ import { FormsModule, NgForm } from '@angular/forms';
     AnnonceComponent,
     DiffusionsComponent,
     AjouterAnnonceComponent,
-    AdministrationComponent
+    AdministrationComponent,
+    ModifierAnnonceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

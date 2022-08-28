@@ -8,7 +8,7 @@ import { Utilisateur } from '../model/utilisateur';
 })
 export class AuthentificationService {
 
-  endpoint = 'http://localhost:8280/';
+  endpoint = 'http://localhost:8180/';
 
   constructor(private client: HttpClient) { }
 

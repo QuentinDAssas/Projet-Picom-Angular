@@ -16,7 +16,7 @@ export class AnnonceComponent implements OnInit {
 
   id = this.activatedRoute.snapshot.params['id'];
 
-  constructor(private service: AnnoncesService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(public service: AnnoncesService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   loadAnnonces(){
     return this.service.getAllAnnonces().subscribe((data: {}) => {

@@ -14,14 +14,17 @@ export class AdministrationComponent implements OnInit {
   @Input()
   tarifForm = new TarifDto();
 
+
   ListTrancheHoraires: any = [];
   ListZones: any = [];
   ListTarifs: any = [];
+
 
   constructor(
     public service: AdministrationService,
     public router: Router,
   ){ }
+
 
   ngOnInit(): void {
     this.loadTrancheHoraires()
@@ -62,3 +65,4 @@ export class AdministrationComponent implements OnInit {
   }
 
 }
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-ajouter-annonce',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AjouterAnnonceComponent implements OnInit {
 
-  constructor() { }
+  zonesDetails: any = [];
+  arretsDetails: any = [];
+  horairesDetails: any = [];
 
-  ngOnInit(): void {
-  }
+  // = this.activatedRoute.snapshot.params['id'];
+
+  // constructor(public service: , private activatedRoute: ActivatedRoute, private router: Router) { }
+
+
+  // loadAnnonces(){
+  //   return this.service.getAllAnnonces().subscribe((data: {}) => {
+  //     console.log(data);
+  //     this.annoncesDetails = data;
+  //   })
+  // }
+
+    ngOnInit(): void {
+     // this.loadAnnonces();
+    }
+
 
 }
