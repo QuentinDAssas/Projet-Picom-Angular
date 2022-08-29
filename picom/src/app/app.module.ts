@@ -13,6 +13,10 @@ import { AdministrationComponent } from './administration/administration.compone
 import { ModifierAnnonceComponent } from './modifier-annonce/modifier-annonce.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarService } from './service/navbar.service';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +29,9 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
     DiffusionsComponent,
     AjouterAnnonceComponent,
     AdministrationComponent,
-    ModifierAnnonceComponent
+    ModifierAnnonceComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

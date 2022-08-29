@@ -22,7 +22,7 @@ export class AnnoncesService {
       })
   }
 
-  getAnnonce(): Observable<any>{
+  getAnnonce(id:number): Observable<any>{
     return this.http.get<Annonce>(this.endpoint+'api/annonces/'+1, this.httpOptions)
     .pipe(
         catchError(this.handleError)

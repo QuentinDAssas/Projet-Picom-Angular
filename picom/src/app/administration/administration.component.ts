@@ -1,8 +1,9 @@
 
 import { Component, Input, OnInit } from '@angular/core';
 import { AdministrationService } from '../Service/administration.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TarifDto } from '../model/tarif-dto';
+import { NavbarService } from '../service/navbar.service';
 
 @Component({
   selector: 'app-administration',
@@ -23,13 +24,17 @@ export class AdministrationComponent implements OnInit {
   constructor(
     public service: AdministrationService,
     public router: Router,
+    private activatedRoute: ActivatedRoute,
+    public nav : NavbarService
   ){ }
 
 
   ngOnInit(): void {
-    this.loadTrancheHoraires()
-    this.loadZones()
-    this.loadTarifs()
+    this.nav.show();
+    this.loadTrancheHoraires();
+    this.loadZones();
+    this.loadTarifs();
+
   }
 
   loadTrancheHoraires() {
@@ -59,8 +64,9 @@ export class AdministrationComponent implements OnInit {
   }
 
   onSubmit() {
-    this.service.addTarif(this.tarifForm).subscribe((data: {}) => {
-      window.location.reload();
+
+    this.service.addTarif(this.tarifForm).subscribe((data: {}) => { console.log(data);
+    window.location.reload();
     });
   }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavbarService } from '../service/navbar.service';
 
 @Component({
   selector: 'app-diffusions',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiffusionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public nav : NavbarService) { }
 
   ngOnInit(): void {
+    this.nav.show();
   }
 
 }
