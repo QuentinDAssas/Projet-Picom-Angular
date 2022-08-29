@@ -1,12 +1,7 @@
 
 import { Component, Input, OnInit } from '@angular/core';
-import { Tarif } from '../model/tarif';
-import { Zone } from '../model/zone';
-import { TrancheHoraire } from '../model/tranche-horaire';
-import { AdministrationService } from '../service/administration.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
-import { Administrateur } from '../model/administrateur';
+import { AdministrationService } from '../Service/administration.service';
+import { Router } from '@angular/router';
 import { TarifDto } from '../model/tarif-dto';
 import { NavbarService } from '../service/navbar.service';
 
@@ -24,6 +19,7 @@ export class AdministrationComponent implements OnInit {
   ListTrancheHoraires: any = [];
   ListZones: any = [];
   ListTarifs: any = [];
+
 
   constructor(
     public service: AdministrationService,

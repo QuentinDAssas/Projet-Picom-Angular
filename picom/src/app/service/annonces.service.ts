@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { Annonce } from '../model/annonce';
 import { TrancheHoraire } from '../model/tranche-horaire';
 
@@ -12,7 +12,7 @@ export class AnnoncesService {
 
   endpoint = 'http://localhost:8180/';
 
-  constructor(private client: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
    httpOptions = {
       headers: new HttpHeaders({
@@ -22,16 +22,47 @@ export class AnnoncesService {
       })
   }
 
-  getAnnonce(id:number): Observable<any>{
-    return this.client.get<Annonce>(this.endpoint+'api/annonces/'+id);
+  getAnnonce(): Observable<any>{
+    return this.http.get<Annonce>(this.endpoint+'api/annonces/'+1, this.httpOptions)
+    .pipe(
+        catchError(this.handleError)
+    )
   }
 
   getAllAnnonces(): Observable<Annonce[]> {
-    return this.client.get<Annonce[]>(this.endpoint+'api/annonces');
+    return this.http.get<Annonce[]>(this.endpoint+'api/annonces', this.httpOptions)
+    .pipe(
+        catchError(this.handleError)
+    )
   }
 
-  getTrancheHoraire(): Observable<any> {
-    return this.client.get<TrancheHoraire>(this.endpoint+'api/annonces/1/tranchesHoraires');
+  getTrancheHoraires():Observable<any>{
+    return this.http.get<TrancheHoraire[]>(this.endpoint + 'api/trancheHoraires', this.httpOptions)
+    .pipe(
+        catchError(this.handleError)
+    )
+  }
+
+  getZones():Observable<any>{
+    return this.http.get<Zone[]>(this.endpoint + 'api/zones', this.httpOptions)
+    .pipe(
+        catchError(this.handleError)
+    )
+  }
+
+  addAnnonce(){
+    console.log("ajout d'annonce);")
+  }
+
+  handleError(error:any) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+        errorMessage = error.error.message;
+    } else {
+        errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    window.alert(errorMessage);
+    return throwError(() => new Error(errorMessage));
   }
 
 

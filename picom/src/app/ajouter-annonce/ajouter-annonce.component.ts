@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { NavbarService } from '../service/navbar.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { AnnoncesService } from '../Service/annonces.service';
+import { TarifDto } from '../model/tarif-dto';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ajouter-annonce',
@@ -9,18 +10,41 @@ import { NavbarService } from '../service/navbar.service';
 })
 export class AjouterAnnonceComponent implements OnInit {
 
-  zonesDetails: any = [];
-  arretsDetails: any = [];
-  horairesDetails: any = [];
+  @Input()
+  addAnnonceForm = new TarifDto();
 
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, public nav : NavbarService) { }
+  ListTrancheHoraires: any = [];
+  ListZones: any = [];
+  ListTarifs: any = [];
 
-
+  constructor(
+    public service: AnnoncesService,
+    public router: Router,
+  ){ }
 
     ngOnInit(): void {
-      this.nav.show();
+      this.loadTrancheHoraires()
+      this.loadZones()
+      // this.loadTarifs()
     }
 
+    loadTrancheHoraires() {
+      return this.service.getTrancheHoraires().subscribe((data: {}) => { console.log(data);
+        this.ListTrancheHoraires = data;
+      })
+    }
+
+    loadZones() {
+      return this.service.getZones().subscribe((data: {}) => { console.log(data);
+        this.ListZones = data;
+      })
+    }
+
+    onSubmit() {
+      // this.service.addAnnonce(this.addAnnonceForm).subscribe((data: {}) => {
+        window.location.reload();
+      // });
+    }
 
 }
