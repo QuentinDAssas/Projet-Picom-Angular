@@ -12,6 +12,7 @@ import { AjouterAnnonceComponent } from './ajouter-annonce/ajouter-annonce.compo
 import { AdministrationComponent } from './administration/administration.component';
 import { ModifierAnnonceComponent } from './modifier-annonce/modifier-annonce.component';
 import { FormsModule } from '@angular/forms';
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 
 @NgModule({
   declarations: [
@@ -30,9 +31,12 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    EditorModule
   ],
-  providers: [],
+  providers: [
+    { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
