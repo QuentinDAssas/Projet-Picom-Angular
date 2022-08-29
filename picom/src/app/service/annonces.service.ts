@@ -22,8 +22,8 @@ export class AnnoncesService {
       })
   }
 
-  getAnnonce(): Observable<any>{
-    return this.client.get<Annonce>(this.endpoint+'api/annonces/'+1);
+  getAnnonce(id:number): Observable<any>{
+    return this.client.get<Annonce>(this.endpoint+'api/annonces/'+id);
   }
 
   getAllAnnonces(): Observable<Annonce[]> {

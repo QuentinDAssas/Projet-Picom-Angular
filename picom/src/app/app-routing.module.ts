@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:'ajouter-annonce', component:AjouterAnnonceComponent},
   {path:'modifier-annonce', component:ModifierAnnonceComponent},
   {path:'paiement', component: PaiementComponent},
-  {path:'administration', component: AdministrationComponent}
+  {path:'administration', component: AdministrationComponent},
 
 ];
 

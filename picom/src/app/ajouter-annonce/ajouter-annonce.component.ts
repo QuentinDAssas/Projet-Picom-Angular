@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NavbarService } from '../service/navbar.service';
 
 @Component({
   selector: 'app-ajouter-annonce',
@@ -12,20 +13,13 @@ export class AjouterAnnonceComponent implements OnInit {
   arretsDetails: any = [];
   horairesDetails: any = [];
 
-  // = this.activatedRoute.snapshot.params['id'];
 
-  // constructor(public service: , private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, public nav : NavbarService) { }
 
 
-  // loadAnnonces(){
-  //   return this.service.getAllAnnonces().subscribe((data: {}) => {
-  //     console.log(data);
-  //     this.annoncesDetails = data;
-  //   })
-  // }
 
     ngOnInit(): void {
-     // this.loadAnnonces();
+      this.nav.show();
     }
 
 

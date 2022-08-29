@@ -11,7 +11,10 @@ import { DiffusionsComponent } from './diffusions/diffusions.component';
 import { AjouterAnnonceComponent } from './ajouter-annonce/ajouter-annonce.component';
 import { AdministrationComponent } from './administration/administration.component';
 import { ModifierAnnonceComponent } from './modifier-annonce/modifier-annonce.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarService } from './service/navbar.service';
 
 @NgModule({
   declarations: [
@@ -24,15 +27,18 @@ import { FormsModule } from '@angular/forms';
     DiffusionsComponent,
     AjouterAnnonceComponent,
     AdministrationComponent,
-    ModifierAnnonceComponent
+    ModifierAnnonceComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [NavbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
