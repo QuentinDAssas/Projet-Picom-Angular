@@ -11,7 +11,7 @@ import { DiffusionsComponent } from './diffusions/diffusions.component';
 import { AjouterAnnonceComponent } from './ajouter-annonce/ajouter-annonce.component';
 import { AdministrationComponent } from './administration/administration.component';
 import { ModifierAnnonceComponent } from './modifier-annonce/modifier-annonce.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 
 @NgModule({
@@ -32,6 +32,7 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     EditorModule
   ],
   providers: [

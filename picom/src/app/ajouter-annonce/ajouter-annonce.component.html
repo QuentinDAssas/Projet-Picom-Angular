@@ -1,6 +1,7 @@
 <h1>Rédiger votre annonce</h1>
 <div class="container">
-  <form class="addAnnonce-flex-col" (ngSubmit)="onSubmit()" #formAddAnnonce="ngForm">
+  <form class="addAnnonce-flex-col" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- #formAddAnnonce="ngForm"> -->
     <div class="editor-center">
       <editor [init]="{
         base_url: '/tinymce',
@@ -19,6 +20,15 @@
             <div *ngFor="let zone of ListZones">
               <input type="checkbox" id="{{zone.id}}"name="{{zone.nom}}">
               <label for="{{zone.nom}}">{{zone.nom}}</label>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>test checked</legend>
+          <div class="addAnnonce-checkbox">
+            <div *ngFor="let cartoon of cartoonsData">
+              <input type="checkbox" (change)="onChange(cartoon.name, $event.target.checked)" />
+              <label for="{{cartoon.name}}">{{cartoon.name}}</label>
             </div>
           </div>
         </fieldset>
