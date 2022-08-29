@@ -4,12 +4,12 @@
   <div>
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
-      <input type="email" id="email" class="form-control"/>
+      <input type="email" id="email" [(ngModel)]="authenticationForm.email" name="email" class="form-control"/>
       <!-- <div [class.error]="!email.valid && email.touched"></div> -->
     </div>
     <div class="mb-3">
       <label for="motDePasse" class="form-label">Mot de passe</label>
-      <input type="text" id="motDePasse" class="form-control"/>
+      <input type="text" id="motDePasse" [(ngModel)]="authenticationForm.motDePasse" name="motDePasse" class="form-control"/>
       <!-- <div [class.error]="!motDePasse.valid && motDePasse.touched"></div> -->
     </div>
   </div>

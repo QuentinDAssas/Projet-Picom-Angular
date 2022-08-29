@@ -14,6 +14,7 @@ import { ModifierAnnonceComponent } from './modifier-annonce/modifier-annonce.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { NavbarService } from './service/navbar.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [NavbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

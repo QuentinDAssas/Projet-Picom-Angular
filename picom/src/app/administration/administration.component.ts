@@ -3,11 +3,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Tarif } from '../model/tarif';
 import { Zone } from '../model/zone';
 import { TrancheHoraire } from '../model/tranche-horaire';
-import { AdministrationService } from '../Service/administration.service';
+import { AdministrationService } from '../service/administration.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Administrateur } from '../model/administrateur';
 import { TarifDto } from '../model/tarif-dto';
+import { NavbarService } from '../service/navbar.service';
 
 @Component({
   selector: 'app-administration',
@@ -27,11 +28,13 @@ export class AdministrationComponent implements OnInit {
   constructor(
     public service: AdministrationService,
     public router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    public nav : NavbarService
   ){ }
 
 
   ngOnInit(): void {
+    this.nav.show();
     this.loadTrancheHoraires();
     this.loadZones();
     this.loadTarifs();

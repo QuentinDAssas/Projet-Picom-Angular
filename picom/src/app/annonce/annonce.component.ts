@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AnnoncesService } from '../Service/annonces.service';
+import { NavbarService } from '../service/navbar.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class AnnonceComponent implements OnInit {
 
   id = this.activatedRoute.snapshot.params['id'];
 
-  constructor(public service: AnnoncesService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(public service: AnnoncesService, private activatedRoute: ActivatedRoute, private router: Router, public nav : NavbarService) { }
 
   loadAnnonces(){
     return this.service.getAllAnnonces().subscribe((data: {}) => {
@@ -33,6 +34,7 @@ export class AnnonceComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.nav.show();
     this.loadAnnonces();
   }
 
