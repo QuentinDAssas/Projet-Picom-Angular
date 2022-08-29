@@ -1,0 +1,14 @@
+footer{
+  background:#333;
+  position:fixed;
+  bottom:0;
+  width:100%;
+  padding-top:50px;
+  padding: 3.5em;
+  text-align: center;
+  }
+
+  a{
+    margin-left: 20px;
+    color:rgb(135 185 229);
+  }

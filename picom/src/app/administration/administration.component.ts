@@ -4,7 +4,7 @@ import { Tarif } from '../model/tarif';
 import { Zone } from '../model/zone';
 import { TrancheHoraire } from '../model/tranche-horaire';
 import { AdministrationService } from '../Service/administration.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Administrateur } from '../model/administrateur';
 import { TarifDto } from '../model/tarif-dto';
@@ -24,17 +24,18 @@ export class AdministrationComponent implements OnInit {
   ListZones: any = [];
   ListTarifs: any = [];
 
-
   constructor(
     public service: AdministrationService,
     public router: Router,
+    private activatedRoute: ActivatedRoute
   ){ }
 
 
   ngOnInit(): void {
-    this.loadTrancheHoraires()
-    this.loadZones()
-    this.loadTarifs()
+    this.loadTrancheHoraires();
+    this.loadZones();
+    this.loadTarifs();
+
   }
 
   loadTrancheHoraires() {
@@ -64,8 +65,9 @@ export class AdministrationComponent implements OnInit {
   }
 
   onSubmit() {
+
     this.service.addTarif(this.tarifForm).subscribe((data: {}) => { console.log(data);
-      this.router.navigate(['/administration']);
+    window.location.reload();
     });
   }
 

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Utilisateur } from '../model/utilisateur';
+import { UtilisateurDto } from '../model/utilisateur-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class AuthentificationService {
       })
   }
 
-  getUtilisateur(email: string, motDePasse: string): Observable<Utilisateur> {
-    return this.client.get<Utilisateur>(this.endpoint+'api/utilisateurs');
+  getUtilisateur(utilisateurDto: UtilisateurDto): Observable<any>{
+    return this.client.get<Utilisateur>(this.endpoint+'api/login');
   }
 }

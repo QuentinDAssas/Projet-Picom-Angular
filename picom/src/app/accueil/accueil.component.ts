@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Utilisateur } from '../model/utilisateur';
 import { AuthentificationService } from '../Service/authentification.service';
-
+import { UtilisateurDto } from '../model/utilisateur-dto';
 
 @Component({
   selector: 'app-accueil',
@@ -10,6 +11,8 @@ import { AuthentificationService } from '../Service/authentification.service';
 })
 export class AccueilComponent implements OnInit {
 
+  @Input()
+  connexionForm = new UtilisateurDto ();
 
   constructor(private service: AuthentificationService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
@@ -18,5 +21,11 @@ export class AccueilComponent implements OnInit {
 
   }
 
+  onSubmit() {
+
+    this.service.getUtilisateur(this.connexionForm).subscribe((data: {}) => { console.log(data);
+
+    });
+  }
 
 }

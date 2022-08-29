@@ -26,7 +26,7 @@ export class AnnonceComponent implements OnInit {
   }
 
   loadAnnonce(){
-    return this.service.getAnnonce().subscribe((data: {}) => {
+    return this.service.getAnnonce(this.id).subscribe((data: {}) => {
       console.log(data);
       this.annonce = data;
     })
