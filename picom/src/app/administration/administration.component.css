@@ -31,6 +31,6 @@ tfoot {
 form div{
   margin:0 1em;
 }
-button{
-  margin-top:0.5em;
+.addPrice{
+  margin-top:2em;
 }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AnnoncesService } from '../Service/annonces.service';
+import { AnnoncesService } from '../service/annonces.service';
 import { Router } from '@angular/router';
 import { AnnonceDto } from '../model/annonce-dto';
 import tinymce from 'tinymce';

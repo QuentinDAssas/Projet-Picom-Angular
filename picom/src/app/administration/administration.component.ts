@@ -1,6 +1,6 @@
 
 import { Component, Input, OnInit } from '@angular/core';
-import { AdministrationService } from '../Service/administration.service';
+import { AdministrationService } from '../service/administration.service';
 import { Router } from '@angular/router';
 import { TarifDto } from '../model/tarif-dto';
 import { NavbarService } from '../service/navbar.service';

@@ -6,7 +6,6 @@ import { AjouterAnnonceComponent } from './ajouter-annonce/ajouter-annonce.compo
 import { AnnonceComponent } from './annonce/annonce.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ModifierAnnonceComponent } from './modifier-annonce/modifier-annonce.component';
-import { PaiementComponent } from './paiement/paiement.component';
 
 const routes: Routes = [
   {path:'', pathMatch:'full', redirectTo: 'connexion'},
@@ -16,7 +15,6 @@ const routes: Routes = [
   {path:'annonces-liste', component: AnnonceComponent},
   {path:'ajouter-annonce', component:AjouterAnnonceComponent},
   {path:'modifier-annonce', component:ModifierAnnonceComponent},
-  {path:'paiement', component: PaiementComponent},
   {path:'administration', component: AdministrationComponent},
 
 ];

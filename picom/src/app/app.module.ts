@@ -8,7 +8,6 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 // import des composants
 import { AppComponent } from './app.component';
 import { InscriptionComponent } from './inscription/inscription.component';
-import { PaiementComponent } from './paiement/paiement.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { AnnonceComponent } from './annonce/annonce.component';
 import { DiffusionsComponent } from './diffusions/diffusions.component';
@@ -23,7 +22,6 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     InscriptionComponent,
     InscriptionComponent,
-    PaiementComponent,
     AccueilComponent,
     AnnonceComponent,
     DiffusionsComponent,

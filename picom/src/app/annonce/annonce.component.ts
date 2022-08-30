@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AnnoncesService } from '../Service/annonces.service';
+import { AnnoncesService } from '../service/annonces.service';
 import { NavbarService } from '../service/navbar.service';
 
 
