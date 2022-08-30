@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { Annonce } from '../model/annonce';
+import { AnnonceDto } from '../model/annonce-dto'; 
 import { TrancheHoraire } from '../model/tranche-horaire';
 
 @Injectable({
@@ -50,8 +51,11 @@ export class AnnoncesService {
     )
   }
 
-  addAnnonce(){
-    console.log("ajout d'annonce);")
+  addAnnonce(annonce:AnnonceDto):Observable<any>{
+    return this.http.post<Annonce>(this.endpoint + 'api/addAnnonce' , JSON.stringify(annonce), this.httpOptions)
+    .pipe(
+        catchError(this.handleError)
+    )
   }
 
   handleError(error:any) {

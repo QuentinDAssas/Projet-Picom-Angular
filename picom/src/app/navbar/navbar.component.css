@@ -10,15 +10,10 @@ header
 }
 
 a{
-  padding:1em;
   text-decoration: none;
   color:black;
   font-size: 1.3em;
   font-weight: 500;
-}
-
-a:hover{
-  color:white
 }
 
 .menu{
@@ -39,6 +34,9 @@ a:hover{
 
 .menu ul li:hover{
   background-color: black;
+}
+.menu ul li:hover a{
+  color:white
 }
 
 nav{

@@ -1,7 +1,6 @@
 <h1>Rédiger votre annonce</h1>
 <div class="container">
-  <form class="addAnnonce-flex-col" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <!-- #formAddAnnonce="ngForm"> -->
+  <form class="addAnnonce-flex-col"(ngSubmit)="onSubmit()" #formAnnonce="ngForm" novalidate>
     <div class="editor-center">
       <editor [init]="{
         base_url: '/tinymce',
@@ -15,71 +14,105 @@
     <div class="addAnnonce-flex-col">
       <div class="addAnnonce-flex-row">
         <fieldset>
-          <legend>Sélectionnez les zones souhaitées</legend>
-          <div class="addAnnonce-checkbox">
-            <div *ngFor="let zone of ListZones">
-              <input type="checkbox" id="{{zone.id}}"name="{{zone.nom}}">
-              <label for="{{zone.nom}}">{{zone.nom}}</label>
+          <legend>Sélectionnez la/les zone(s) souhaitée(s) puis la/les tranche(s)-horaire</legend>
+          <div class="addAnnonce-flex-row">
+            <div class="addAnnonce-flex-col">
+              <label class="zoneCheck" for=Zone1>Zone 1</label>
+              <input type="checkbox" id=1 [(ngModel)]="AnnonceForm.idZoneAnnonce" [ngModelOptions]="{standalone: true}" name=zone1 (change)="toggleZone1($event)">
+              <div class="addAnnonce-checkbox">
+                <div *ngFor="let trancheHoraire1 of ListTrancheHoraires">
+                  <input type="checkbox" name="{{trancheHoraire1.debut}}" [(ngModel)]="trancheHoraire1.checked">
+                  <label for="{{trancheHoraire1.debut}}">{{trancheHoraire1.debut}}h-{{trancheHoraire1.debut+1}}h</label>
+                </div>
+                <pre hidden>{{this.selectedCheckboxListTrancheHorairesZone1 | json}}</pre>
+              </div>
             </div>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>test checked</legend>
-          <div class="addAnnonce-checkbox">
-            <div *ngFor="let cartoon of cartoonsData">
-              <input type="checkbox" (change)="onChange(cartoon.name, $event.target.checked)" />
-              <label for="{{cartoon.name}}">{{cartoon.name}}</label>
+            <div class="addAnnonce-flex-col">
+              <label class="zoneCheck" for=Zone2>Zone 2</label>
+              <input type="checkbox" name=zone2 (change)="toggleZone2($event)">
+              <div class="addAnnonce-checkbox">
+                <div *ngFor="let trancheHoraire2 of ListTrancheHoraires">
+                  <input type="checkbox" name="{{trancheHoraire2.debut}}">
+                  <label for="{{trancheHoraire2.debut}}">{{trancheHoraire2.debut}}h-{{trancheHoraire2.debut+1}}h</label>
+                </div>
+                <pre hidden>{{this.selectedCheckboxListTrancheHorairesZone2 | json}}</pre>
+              </div>
             </div>
-          </div>
-        </fieldset>
-        <fieldset >
-          <legend>Sélectionnez les Tranches horaire souhaitées</legend>
-          <div class="addAnnonce-checkbox">
-            <div *ngFor="let trancheHoraire of ListTrancheHoraires">
-              <input type="checkbox" id="{{trancheHoraire.id}}"name="{{trancheHoraire.debut}}">
-              <label for="{{trancheHoraire.debut}}">{{trancheHoraire.debut}}h-{{trancheHoraire.debut+1}}h</label>
+            <div class="addAnnonce-flex-col">
+              <label class="zoneCheck" for=Zone3>Zone 3</label>
+              <input type="checkbox" name=zone3 (change)="toggleZone3($event)">
+              <div class="addAnnonce-checkbox">
+                <div *ngFor="let trancheHoraire3 of ListTrancheHoraires">
+                  <input type="checkbox" name="{{trancheHoraire3.debut}}">
+                  <label for="{{trancheHoraire3.debut}}">{{trancheHoraire3.debut}}h-{{trancheHoraire3.debut+1}}h</label>
+                </div>
+                <pre hidden>{{this.selectedCheckboxListTrancheHorairesZone3 | json}}</pre>
+              </div>
             </div>
+            <div class="addAnnonce-flex-col">
+              <label class="zoneCheck" for=Zone4>Zone 4</label>
+              <input type="checkbox" name=zone4 (change)="toggleZone4($event)">
+              <div class="addAnnonce-checkbox">
+                <div *ngFor="let trancheHoraire4 of ListTrancheHoraires">
+                  <input type="checkbox" name="{{trancheHoraire4.debut}}">
+                  <label for="{{trancheHoraire4.debut}}">{{trancheHoraire4.debut}}h-{{trancheHoraire4.debut+1}}h</label>
+                </div>
+                <pre hidden>{{this.selectedCheckboxListTrancheHorairesZone4 | json}}</pre>
+              </div>
+            </div>
+            <div class="addAnnonce-flex-col">
+              <label class="zoneCheck" for=Zone5>Zone 5</label>
+              <input type="checkbox" name=zone5 (change)="toggleZone5($event)">
+              <div class="addAnnonce-checkbox">
+                <div *ngFor="let trancheHoraire5 of ListTrancheHoraires">
+                  <input type="checkbox" name="{{trancheHoraire5.debut}}">
+                  <label for="{{trancheHoraire5.debut}}">{{trancheHoraire5.debut}}h-{{trancheHoraire5.debut+1}}h</label>
+                </div>
+                <pre hidden>{{this.selectedCheckboxListTrancheHorairesZone5 | json}}</pre>
+              </div>
+            </div>
+            <!-- <pre hidden>{{this.selectedCheckboxListZones | json}}</pre> -->
           </div>
         </fieldset>
       </div>
       <div class="addAnnonce-flex-row">
         <div class="addAnnonce-flex-col">
-          <label for="prixEnEuros">date de debut de diffusion :</label>
-          <input type="date" placeholder="Debut de diffusion" required>
+          <label for="dateDebutDiffusion">date de debut de diffusion :</label>
+          <input type="date" name="dateDebutDiffusion"[(ngModel)]="AnnonceForm.dateHeureDebut" [ngModelOptions]="{standalone: true}"placeholder="Debut de diffusion" required>
         </div>
         <div class="addAnnonce-flex-col">
-          <label for="prixEnEuros">date de fin de diffusion :</label>
-          <input type="date" placeholder="Fin de diffusion" required >
+          <label for="dateFinDiffusion">date de fin de diffusion :</label>
+          <input type="date" [(ngModel)]="AnnonceForm.dateHeureFin" [ngModelOptions]="{standalone: true}" placeholder="Fin de diffusion" required >
         </div>
       </div>
     </div>
     <h3>Paiements en carte</h3>
     <div class="addAnnonce-flex-row">
       <div class="addAnnonce-flex-col">
-        <label for="prixEnEuros">Numéro de la carte :</label>
-        <input type="text" placeholder="Numéro de la carte" required>
+        <label for="numeroCarte">Numéro de la carte :</label>
+        <input type="text" [(ngModel)]="AnnonceForm.numeroDeCarte" [ngModelOptions]="{standalone: true}" name="numeroCarte" placeholder="Numéro de la carte" required>
       </div>
       <div class="addAnnonce-flex-col">
-        <label for="prixEnEuros">Année d'expiration :</label>
-        <input type="number"placeholder="Année d'expiration" required>
+        <label for="annee">Année d'expiration :</label>
+        <input type="number" [(ngModel)]="AnnonceForm.anneeExpiration" [ngModelOptions]="{standalone: true}" for="annee"placeholder="Année d'expiration" required>
       </div>
       <div class="addAnnonce-flex-col">
-        <label for="prixEnEuros">Mois d'expiration :</label>
-        <input type="number" placeholder="Mois d'expiration" required>
+        <label for="mois">Mois d'expiration :</label>
+        <input type="number"[(ngModel)]="AnnonceForm.moisExpiration" [ngModelOptions]="{standalone: true}" name="mois" placeholder="Mois d'expiration" required>
       </div>
       <div class="addAnnonce-flex-col">
-        <label for="prixEnEuros">Cryptogramme :</label>
-        <input type="text" placeholder="CVV" required>
+        <label for="cryptogramme">Cryptogramme :</label>
+        <input type="text" [(ngModel)]="AnnonceForm.cryptogramme" [ngModelOptions]="{standalone: true}" name="cryptogramme" placeholder="CVV" required>
       </div>
     </div>
     <div class="addAnnonce-flex-row div-paiemnt">
       <div class="addAnnonce-flex-col">
-        <input type="text"class="form-control" placeholder="Prix total :" disabled="disabled">
+        <input type="text"class="form-control" [(ngModel)]="AnnonceForm.montantRegleEnEuros" [ngModelOptions]="{standalone: true}" placeholder="Prix total :" disabled="disabled">
       </div>
       <div>
-        <input type="number" value="1" hidden>
+        <input type="number" [(ngModel)]="AnnonceForm.idClient" [ngModelOptions]="{standalone: true}" value="1" hidden>
       </div>
-      <button type="submit" routerLinkActive="active" routerLink="/paiement">Valider le paiement</button>
+      <button type="submit">Valider le paiement</button>
     </div>
   </form>
 </div>

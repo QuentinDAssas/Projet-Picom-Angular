@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Utilisateur } from '../model/utilisateur';
 import { AuthentificationService } from '../service/authentification.service';
 import { UtilisateurDto } from '../model/utilisateur-dto';
 import { NavbarService } from '../service/navbar.service';

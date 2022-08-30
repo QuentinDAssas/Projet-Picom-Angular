@@ -21,6 +21,7 @@ export class AuthentificationService {
       })
   }
 
+  //methode qui permet de récupérer l'utilisateur
   getUtilisateur(utilisateurDto: UtilisateurDto): Observable<any>{
     return this.client.get<Utilisateur>(this.endpoint+'api/login');
   }
